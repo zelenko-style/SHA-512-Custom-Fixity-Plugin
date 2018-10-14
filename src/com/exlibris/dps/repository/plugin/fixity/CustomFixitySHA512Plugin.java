@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import com.exlibris.core.sdk.strings.StringUtils;
 import com.exlibris.dps.repository.plugin.CustomFixityPlugin;
 import com.exlibris.core.infra.common.exceptions.logging.ExLogger;
 import java.io.FileInputStream;
@@ -78,9 +79,9 @@ public class CustomFixitySHA512Plugin implements CustomFixityPlugin {
 
 	public void initParams(Map<String, String> initParams) {
 		this.pluginVersion = initParams.get(PLUGIN_VERSION_INIT_PARAM);
-		// if(!StringUtils.isEmptyString(initParams.get("fixityScanResult"))){
-		// result = Boolean.parseBoolean(initParams.get("fixityScanResult").trim());
-		// }
+		 if(!StringUtils.isEmptyString(initParams.get("fixityScanResult"))){
+		 result = Boolean.parseBoolean(initParams.get("fixityScanResult").trim());
+		 }
 	}
 
 	private byte[] checksum(File input) throws IOException {
